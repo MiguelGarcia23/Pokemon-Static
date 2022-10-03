@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps } from 'next';
+import { pokeApi } from '../api';
 
 import { Layout } from '../components/layouts';
 
@@ -28,11 +29,11 @@ const HomePage: NextPage = ( props ) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
 
-  console.log('Hola Mundo');
+  const { data } = await pokeApi.get('/pokemon?limit=151');
 
   return {
     props: {
-      name: 'Miguel'
+      pokemons: data.results
     }
   }
 }
