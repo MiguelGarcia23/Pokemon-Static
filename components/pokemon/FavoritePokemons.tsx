@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const FavoritePokemons: FC<Props> = ({ pokemons }) => {
+    console.log(pokemons);
     return (
         <Grid.Container gap={2} direction="row" justify="flex-start">
             {
